@@ -16,11 +16,8 @@
         <pubDate>{{ page.date | date(RFC822) }}</pubDate>
         <link>{{ page.url }}</link>
         <guid isPermaLink="true">{{ page.url }}</guid>
-        {% for tag in page.meta.tags %}
-        <category>{{ tag | e }}</category>
-        {% endfor %}
         {% for cat in page.meta.categories %}
-        <category>{{ cat | e }}</category>
+          <category>{{ cat | e }}</category>
         {% endfor %}
       </item>
       {% if loop.index == 10 %}{% set end = true %}{% endif %}
