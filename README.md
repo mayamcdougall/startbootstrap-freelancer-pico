@@ -2,6 +2,8 @@
 
 This is a [PicoCMS][] port of for the [Freelancer][] portfolio theme based on [Bootstrap][], created by [Start Bootstrap][].
 
+Live preview of [Freelancer][] available [here][Preview].
+
 ## Getting Started
 
 To use this theme:
@@ -46,6 +48,7 @@ Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT][] licen
 [Bootstrap]: http://getbootstrap.com/
 [PicoCMS]: http://picocms.org
 [Latest Release]: https://github.com/smcdougall/startbootstrap-freelancer-pico/releases/
+[Preview]: https://blackrockdigital.github.io/startbootstrap-freelancer/
 [MailSupport]: https://github.com/BlackrockDigital/startbootstrap-freelancer/blob/master/mail/contact_me.php
 [Issue]: https://github.com/smcdougall/startbootstrap-freelancer-pico/issues
 [David Miller]: http://davidmiller.io/
