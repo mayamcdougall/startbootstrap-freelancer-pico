@@ -3,9 +3,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <title>{{ site_title }}</title>
 
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="description" content="{{ pages.index.meta.description }}">
+    {% if pages.index.meta.robots %}<meta name="robots" content="{{ pages.index.meta.robots }}">{% endif %}
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,15 +14,33 @@
     <!-- Freelancer Theme CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-freelancer/3.3.7/css/freelancer.min.css">
 
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="canonical" href="{{ base_url }}">
 
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml " | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site_title }}" href="{{ base_url ~ '/feed' }}">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    
+
+    {# User CSS & Fonts #}
+    {% if pages.index.meta.css %}
+        <link rel="stylesheet" href="{{ base_url }}/{{ pages.index.meta.css }}" type="text/css">
+    {% endif %}
+    {% if pages.index.meta.fonts %}
+        {% for url in pages.index.meta.fonts %}
+            <link href='{{ url }}' rel='stylesheet' type='text/css'>
+        {% endfor %}
+    {% endif %}
+
+    {# Open Graph #}
+    <meta property="og:title" content="{{ site_title }}">
+    <meta property="og:description" content="{{ pages.index.meta.description }}">
+    <meta property="og:url" content="{{ base_url }}">
+    <meta property="og:type" content="website">
+    {% if pages.index.meta.og_image %}<meta property="og:image" content="{{ base_url }}/{{ pages.index.meta.og_image }}">{% endif %}
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

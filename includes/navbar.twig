@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#page-top">{{ site.title }}</a>
+            <a class="navbar-brand" href="#page-top">{{ site_title }}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -20,15 +20,31 @@
                 <li class="page-scroll">
                     <a href="#portfolio">Portfolio</a>
                 </li>
-                <li class="page-scroll">
-                    <a href="#about">About</a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#contact">Contact</a>
-                </li>
+                {% if 'about' not in pages.index.meta.disable %}
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                {% endif %}
+                {% if 'contact' not in pages.index.meta.disable %}
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
+
+    {# Show YAML Errors #}
+    {% for page in pages if page.meta.YAML_ParseError %}
+        <p style="
+            color: white;
+            text-align: center;
+            background-color: darkred;
+            margin-bottom: -25px;
+            text-transform: none;
+        ">Header Error in <a href="{{ page.url }}">{{ page.id }}</a>, {{ page.meta.YAML_ParseError }}</p>
+    {% endfor %}
+
 </nav>

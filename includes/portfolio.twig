@@ -8,15 +8,15 @@
                 </div>
             </div>
             <div class="row">
-                {% for post in site.posts %}
+                {% for page in pages if page.id not in ['index','feed'] %}
                     <div class="col-sm-4 portfolio-item">
-                        <a href="#{{ post.modalID }}" class="portfolio-link" data-toggle="modal">
+                        <a href="#{{ page.id }}" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img src="{{ site.baseurl }}/{{ post.img }}" class="img-responsive" alt="">
+                            <img src="{{ base_url ~ '/' ~ page.meta.image }}" class="img-responsive" alt="">
                         </a>
                     </div>
                 {% endfor %}

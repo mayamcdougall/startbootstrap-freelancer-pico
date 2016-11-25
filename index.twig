@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  {% include "includes/head.twig" %}
+
+  <body id="page-top" class="index">
+
+    {% include "includes/navbar.twig" %}
+
+    {% include "includes/header.twig" %}
+
+    {% include "includes/portfolio.twig" %}
+
+    {% if 'about' not in pages.index.meta.disable %}{% include "includes/about.twig" %}{% endif %}
+
+    {% if 'contact' not in pages.index.meta.disable %}{% include "includes/contact.twig" %}{% endif %}
+
+    {% if 'footer' not in pages.index.meta.disable %}{% include "includes/footer.twig" %}{% endif %}
+
+    {% include "includes/modals.twig" %}
+
+    {% include "includes/javascript.twig" %}
+
+  </body>
+
+</html>

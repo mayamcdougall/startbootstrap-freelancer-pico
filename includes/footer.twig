@@ -1,0 +1,58 @@
+<!-- Footer -->
+<footer class="text-center">
+    {% if pages.index.meta.address or pages.index.meta.social or pages.index.meta.footer %}
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    {% if pages.index.meta.address %}
+                        <div class="footer-col col-md-4">
+                            <h3>Location</h3>
+                            <p>{{ pages.index.meta.address.street }}
+                                <br>{{ pages.index.meta.address.city }}, {{ pages.index.meta.address.state }} {{ pages.index.meta.address.zip }}</p>
+                        </div>
+                    {% endif %}
+                    {% if pages.index.meta.social %}
+                        <div class="footer-col col-md-4">
+                            <h3>Around the Web</h3>
+                            <ul class="list-inline">
+                                {% set social_urls = {
+                                    'facebook': 'https://www.facebook.com/',
+                                    'github': 'https://github.com/',
+                                    'google-plus': 'https://plus.google.com/+',
+                                    'instagram': 'https://www.instagram.com/',
+                                    'twitter': 'https://twitter.com/'
+                                } %}
+                                {% for site,social in pages.index.meta.social %}
+                                    <li>
+                                        <a href="{% if site != 'skype' %}{{ social_urls[site] }}{{ social }}{% else %}skype:{{ social }}?call{% endif %}" class="btn-social btn-outline"><i class="fa fa-fw fa-{{ site }}"></i></a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {% if pages.index.meta.footer %}
+                        <div class="footer-col col-md-4">
+                            <h3>{{ pages.index.meta.footer.heading }}</h3>
+                            <p>{{ pages.index.meta.footer.paragraph }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; {{ site_title }} {{ pages.index.meta.date | date('Y') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
