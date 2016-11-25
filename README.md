@@ -14,6 +14,16 @@ To use this theme:
 
 \* Provides an RSS feed of your pages at `/feed`
 
+## Contact Form Setup
+
+While out of the scope of this port, in order for the contact form to work, you'll need the php file [`mail/contact_me.php`][MailSupport] from the original HTML version of [Freelancer][].
+
+You'll need to place the `mail` folder in the root of your Pico install.  From there, you'll need to edit `contact_me.php` to specify your email address.  There are additional options you can configure in this file as well.
+
+Support for this feature will ultimately depend on the configuration of your server, but is again, out of scope of this port.
+
+You can easily disable the contact form from within `index.md` if you do not wish to use it.
+
 ## Bugs and Issues
 
 Have a bug or an issue with this template? You can open a new [Issue][] here on GitHub.
@@ -36,6 +46,7 @@ Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT][] licen
 [Bootstrap]: http://getbootstrap.com/
 [PicoCMS]: http://picocms.org
 [Latest Release]: https://github.com/smcdougall/startbootstrap-freelancer-pico/releases/
+[MailSupport]: https://github.com/BlackrockDigital/startbootstrap-freelancer/blob/master/mail/contact_me.php
 [Issue]: https://github.com/smcdougall/startbootstrap-freelancer-pico/issues
 [David Miller]: http://davidmiller.io/
 [Blackrock Digital]: http://blackrockdigital.io/
