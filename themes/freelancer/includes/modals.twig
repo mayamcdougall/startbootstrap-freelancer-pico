@@ -1,19 +1,29 @@
 {% for page in pages if page.id not in ['index','feed'] %}
-<div class="portfolio-modal modal fade" id="{{ page.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>{{ page.title }}</h2>
-                        <hr class="star-primary">
+<div class="portfolio-modal modal fade" id="{{ page.id }}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" a    ria-hidden="true">
+    <div class="modal-content modal-xl" role="document">
+        <div class="modal-content" data-dismiss="modal">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+        <div class="modal-body text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <!-- Portfolio Modal - Title -->
+                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{ page.title }}</h2>
+                        <!-- Icon Divider -->
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                            <div class="divider-custom-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <!-- Portfolio Modal - Image -->
                         <img src="{{ base_url ~ '/' ~ page.meta.image }}" class="img-responsive img-centered" alt="">
+                        <!-- Portfolio Modal - Text -->
                         {{ page.id | content }}
                         <ul class="list-inline item-details">
                             {% if page.date %}<li>Date: <strong>{{ page.date | date("F Y") }}</strong></li>{% endif %}
@@ -22,11 +32,13 @@
                                 <li>{{ key }}: <strong>{{ value | join(", ")}}</strong></li>
                             {% endfor %}
                         </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            <i class="fa fa-times"></i> 
+                                Close
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 {% endfor %}

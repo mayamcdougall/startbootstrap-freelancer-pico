@@ -1,50 +1,40 @@
-<!-- Navigation -->
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top navbar-shrink">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger " href="#page-top">{{ site_title }}</a>
+    	<button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#page-top">{{ site_title }}</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#portfolio">Portfolio</a>
-                </li>
-                {% if 'about' not in pages.index.meta.disable %}
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
                     </li>
-                {% endif %}
-                {% if 'contact' not in pages.index.meta.disable %}
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                {% endif %}
-            </ul>
+                    {% if 'about' not in pages.index.meta.disable %}
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+                        </li>
+                    {% endif %}
+                    {% if 'contact' not in pages.index.meta.disable %}
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-
-    {# Show YAML Errors #}
-    {% for page in pages if page.meta.YAML_ParseError %}
-        <p style="
-            color: white;
-            text-align: center;
-            background-color: darkred;
-            margin-bottom: -25px;
-            text-transform: none;
-        ">Header Error in <a href="{{ page.url }}">{{ page.id }}</a>, {{ page.meta.YAML_ParseError }}</p>
-    {% endfor %}
-
-</nav>
+        <!-- /.container-fluid -->
+    
+        {# Show YAML Errors #}
+        {% for page in pages if page.meta.YAML_ParseError %}
+            <p style="
+                color: white;
+                text-align: center;
+                background-color: darkred;
+                margin-bottom: -25px;
+                text-transform: none;
+            ">Header Error in <a href="{{ page.url }}">{{ page.id }}</a>, {{ page.meta.YAML_ParseError }}</p>
+        {% endfor %}
+    
+    </nav>
