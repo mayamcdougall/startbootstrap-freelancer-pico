@@ -12,6 +12,7 @@ To use this theme:
 1. Extract `themes/freelancer` to your Pico `themes` folder.
 1. Extract `index.md.sample` and `content/feed.md` (optional*) to your `content` folder.
 1. Copy or rename `index.md.sample` to `index.md`
+1. Copy or reanme `modalitem.md.sample` to `abitraryname.md`
 1. Configure your website using the YAML options in `index.md`
 
 \* Provides an RSS feed of your pages at `/feed`
@@ -26,6 +27,20 @@ Support for this feature will ultimately depend on the configuration of your ser
 
 You can easily disable the contact form from within `index.md` if you do not wish to use it.
 
+## No Remote Libraries
+
+If you want to host all libraries locally, you must download the respective libraries and make them available to the theme somehow.
+One option is to put the libraries globally into the pico root directory(`<nextcloud_dir>/apps/cms_pico/`). Here you can keep libraries updated for multiple themes relatively easy.
+
+However, if you want to keep libraries available only to a specific theme, you must put such libraries into the theme folder, such as the `includes` directory.
+For example, download the the distribution of [Freelancer][]. Copy all subdirectories (`css`, `js`, `mail`, `vendor`, `scss`) into the the `includes` directory.
+Then change the files `javascript.twig` and `head.twig` to use the theme's libraries. 
+The placeholder `{{ theme_url }}` will return the location in the pico cms.
+`javascript.twig` will contain lines such as:
+```
+  <!-- Custom scripts for this template -->
+  <script src="{{ theme_url }}/includes/js/freelancer.js"></script>
+```
 ## Bugs and Issues
 
 Have a bug or an issue with this template? You can open a new [Issue][] here on GitHub.

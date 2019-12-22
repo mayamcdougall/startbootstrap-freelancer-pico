@@ -1,28 +1,43 @@
 {% for page in pages if page.id not in ['index','feed'] %}
-<div class="portfolio-modal modal fade" id="{{ page.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>{{ page.title }}</h2>
-                        <hr class="star-primary">
-                        <img src="{{ base_url ~ '/' ~ page.meta.image }}" class="img-responsive img-centered" alt="">
-                        {{ page.id | content }}
-                        <ul class="list-inline item-details">
-                            {% if page.date %}<li>Date: <strong>{{ page.date | date("F Y") }}</strong></li>{% endif %}
-                            {% if page.meta.category %}<li>Category: <strong>{{ page.meta.category | join(", ")}}</strong></li>{% endif %}
-                            {% for key, value in page.meta.info %}
-                                <li>{{ key }}: <strong>{{ value | join(", ")}}</strong></li>
-                            {% endfor %}
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+<div class="portfolio-modal modal fade" id="{{ page.id }}" tabindex="-1" role="dialog" aria-labelledby="{{ page.id }}Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content" data-dismiss="modal">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+            <div class="modal-body text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title -->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{ page.title }}</h2>
+                            <!-- Icon Divider -->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Portfolio Modal - Image -->
+                            <img src="{{ base_url ~ '/' ~ page.meta.image }}" class="img-fluid rounded mb-5" alt="">
+                            <!-- Portfolio Modal - Text -->
+                            <p class="mb-5">{{ page.id | content }}</p>
+                            <!-- Portfolia Modal - Meta -->
+                            <ul class="list-inline item-details">
+                                {% if page.date %}<li>Date: <strong>{{ page.date | date("F Y") }}</strong></li>{% endif %}
+                                {% if page.meta.category %}<li>Category: <strong>{{ page.meta.category | join(", ")}}</strong></li>{% endif %}
+                                {% for key, value in page.meta.info %}
+                                    <li>{{ key }}: <strong>{{ value | join(", ")}}</strong></li>
+                                {% endfor %}
+                            </ul>
+                            <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                <i class="fa fa-times fa-fw"></i> 
+                                Close Window
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,25 @@
 <!-- About Section -->
-    <section class="success" id="about">
+    <section class="page-section bg-primary text-white mb-0" id="about">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>{{ pages.index.meta.about_text }}</h2>
-                    <hr class="star-light">
+            <!-- About Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase text-white">{{ pages.index.meta.about_text }}</h2>
+
+            <!-- Icon Divider -->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
                 </div>
+                <div class="divider-custom-line"></div>
             </div>
+
+            <!-- About Section Content -->
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>{{ pages.index.meta.about_1 }}</p>
+                <div class="col-lg-4 ml-auto">
+                    <p class="lead">{{ pages.index.meta.about_1 }}</p>
                 </div>
-                <div class="col-lg-4">
-                    <p>{{ pages.index.meta.about_2 }}</p>
+                <div class="col-lg-4 mr-auto">
+                    <p class="lead">{{ pages.index.meta.about_2 }}</p>
                 </div>
             </div>
         </div>
