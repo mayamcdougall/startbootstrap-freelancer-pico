@@ -1,9 +1,14 @@
 ---
 Title: Sample Header
-Date: 01.01.2020
-Category: atest, cat1, cat2 cat3
-Info: info1 info2 info3,info4
 image: assets/profile.png
+date: 01.01.2020
+category: cat1, cat2, cat3
+info: 
+  info1: answer1
+  info2: answer2
+
 ---
-something is written here
+Something is written in this Modal item.
+
+You can remove any line in the meta data, but title and image.
 
