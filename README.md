@@ -37,9 +37,10 @@ For example, download the the distribution of [Freelancer][]. Copy all subdirect
 Then change the files `javascript.twig` and `head.twig` to use the theme's libraries. 
 The placeholder `{{ theme_url }}` will return the location in the pico cms.
 `javascript.twig` will contain lines such as:
+```
   <!-- Custom scripts for this template -->
   <script src="{{ theme_url }}/includes/js/freelancer.js"></script>
-
+```
 ## Bugs and Issues
 
 Have a bug or an issue with this template? You can open a new [Issue][] here on GitHub.
